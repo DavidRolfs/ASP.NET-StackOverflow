@@ -6,6 +6,7 @@ namespace StackOverFlow.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<ApplicationUser> users { get; set; }
+
         public ApplicationDbContext()
         {
 
