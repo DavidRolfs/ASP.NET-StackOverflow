@@ -5,6 +5,7 @@ namespace StackOverFlow.Models
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<ApplicationUser> users { get; set; }
         public ApplicationDbContext()
         {
 
@@ -15,16 +16,14 @@ namespace StackOverFlow.Models
             
         }
 
-        public DbSet<ApplicationUser> users { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=StackOverflow;integrated security=True");
-        }
-
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            base.OnModelCreating(builder);
         }
     }
 }
