@@ -74,7 +74,7 @@ namespace StackOverFlow.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult ListOfUsers()
+        public IActionResult Users()
         {
             return View(_db.users.ToList());
         }
