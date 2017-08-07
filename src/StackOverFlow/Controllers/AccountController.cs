@@ -73,5 +73,10 @@ namespace StackOverFlow.Controllers
             await _signInManager.SignOutAsync();
             return RedirectToAction("Index");
         }
+
+        public IActionResult ListOfUsers()
+        {
+            return View(_db.users.ToList());
+        }
     }
 }

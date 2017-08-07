@@ -7,7 +7,14 @@ namespace StackOverFlow.Models
     {
         public ApplicationDbContext(DbContextOptions options) : base(options)
         {
+            
+        }
 
+        public DbSet<ApplicationUser> users { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder options)
+        {
+            options.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=StackOverflow;integrated security=True");
         }
     }
 }
